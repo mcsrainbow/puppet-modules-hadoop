@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<!--- File Managed by Puppet -->
+
+<configuration>
+
+<!-- Hive Configuration can either be stored in this file or in the hadoop configuration files  -->
+<!-- that are implied by Hadoop setup variables.                                                -->
+<!-- Aside from Hadoop setup variables - this file is provided as a convenience so that Hive    -->
+<!-- users do not have to edit hadoop configuration files (that may be managed as a centralized -->
+<!-- resource).                                                                                 -->
+
+<!-- Hive Execution Parameters -->
+
+<property>
+  <name>javax.jdo.option.ConnectionURL</name>
+  <value>jdbc:mysql://ip-10-196-9-188.us-west-1.compute.internal:3306/metastore</value>
+</property>
+
+<property>
+  <name>javax.jdo.option.ConnectionDriverName</name>
+  <value>com.mysql.jdbc.Driver</value>
+</property>
+
+<property>
+  <name>javax.jdo.option.ConnectionUserName</name>
+  <value>hiveuser</value>
+</property>
+
+<property>
+  <name>javax.jdo.option.ConnectionPassword</name>
+  <value>password</value>
+</property>
+
+<property>
+  <name>datanucleus.autoCreateSchema</name>
+  <value>false</value>
+</property>
+
+<property>
+  <name>datanucleus.fixedDatastore</name>
+  <value>true</value>
+</property>
+
+<property>
+  <name>hive.stats.autogather</name>
+  <value>false</value>
+</property>
+
+<property>
+  <name>hive.aux.jars.path</name>
+  <value>file:///usr/lib/hive/lib/hive-hbase-handler-0.7.1-cdh3u4.jar,file:///usr/lib/hbase/hbase-0.90.6-cdh3u4.jar,file:///usr/lib/zookeeper/zookeeper-3.3.5-cdh3u4.jar</value> 
+</property>
+
+<property>
+  <name>hbase.zookeeper.quorum</name>
+  <value>ip-10-197-29-251.us-west-1.compute.internal,ip-10-196-9-188.us-west-1.compute.internal,ip-10-197-62-239.us-west-1.compute.internal</value>
+</property>
+
+<!-- Hive security configs -->
+<property>
+  <name>hive.metastore.sasl.enabled</name>
+  <value>true</value>
+</property>
+
+<property>
+  <name>hive.metastore.kerberos.keytab.file</name>
+  <value>/etc/hive/conf/hive.keytab</value>
+</property>
+
+<property>
+  <name>hive.metastore.kerberos.principal</name>
+  <value>hive/_HOST@US-WEST-1.COMPUTE.INTERNAL</value>
+</property>
+
+</configuration>

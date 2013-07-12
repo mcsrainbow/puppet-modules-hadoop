@@ -1,0 +1,20 @@
+"File Managed by Puppet"
+
+"--------------------------------------------"
+"The initialization steps for Graphite Server"
+"--------------------------------------------"
+
+"Step1. Sync the database"
+sudo python manage.py syncdb
+
+"Step2. Chown the graphite"
+sudo chown -R apache:apache /opt/graphite
+
+"Step3. Restart the httpd"
+sudo /etc/init.d/httpd restart
+
+"Step4. Start the carbon-cache.py"
+sudo /opt/graphite/bin/carbon-cache.py start
+
+"Step5. Create a default Django superuser"
+sudo python manage.py createsuperuser --username=admin

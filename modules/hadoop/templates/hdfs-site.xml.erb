@@ -1,0 +1,119 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<!--- File Managed by Puppet -->
+
+<configuration>
+<property>
+  <name>dfs.data.dir</name>
+  <value>/data/hdfs</value>
+</property>
+<property>
+  <name>dfs.replication</name>
+  <value>2</value>
+</property>
+<property>
+  <name>dfs.datanode.max.xcievers</name>
+  <value>4096</value>
+</property>
+
+<property>
+  <name>dfs.namenode.secondary.http-address</name>
+  <value>ip-10-196-9-188.us-west-1.compute.internal:50090</value>
+</property>
+
+<property> 
+  <name>dfs.namenode.plugins</name> 
+  <value>org.apache.hadoop.thriftfs.NamenodePlugin</value> 
+  <description>Comma-separated list of namenode plug-ins to be activated. </description> 
+</property> 
+<property> 
+  <name>dfs.datanode.plugins</name> 
+  <value>org.apache.hadoop.thriftfs.DatanodePlugin</value> 
+  <description>Comma-separated list of datanode plug-ins to be activated. </description> 
+</property> 
+<property> 
+  <name>dfs.thrift.address</name> 
+  <value>0.0.0.0:10090</value> 
+</property>
+
+<!-- General HDFS security config -->
+<property>
+  <name>dfs.block.access.token.enable</name>
+  <value>true</value>
+</property>
+
+<!-- NameNode security config -->
+<property>
+  <name>dfs.http.address</name>
+  <value>ip-10-197-29-251.us-west-1.compute.internal:50070</value>
+</property><property>
+  <name>dfs.namenode.keytab.file</name>
+  <value>/etc/hadoop/conf/hdfs.keytab</value> <!-- path to the HDFS keytab -->
+</property>
+<property>
+  <name>dfs.namenode.kerberos.principal</name>
+  <value>hdfs/_HOST@US-WEST-1.COMPUTE.INTERNAL</value>
+</property>
+<property>
+  <name>dfs.namenode.kerberos.internal.spnego.principal</name>
+  <value>HTTP/_HOST@US-WEST-1.COMPUTE.INTERNAL</value>
+</property>
+
+<!-- Secondary NameNode security config -->
+<property>
+  <name>dfs.secondary.namenode.keytab.file</name>
+  <value>/etc/hadoop/conf/hdfs.keytab</value> <!-- path to the HDFS keytab -->
+</property>
+<property>
+  <name>dfs.secondary.namenode.kerberos.principal</name>
+  <value>hdfs/_HOST@US-WEST-1.COMPUTE.INTERNAL</value>
+</property>
+<property>
+  <name>dfs.secondary.namenode.kerberos.internal.spnego.principal</name>
+  <value>HTTP/_HOST@US-WEST-1.COMPUTE.INTERNAL</value>
+</property>
+<property>
+  <name>dfs.secondary.http.address</name>
+  <value>ip-10-196-9-188.us-west-1.compute.internal:50090</value>
+</property>
+
+<!-- DataNode security config -->
+<property>
+  <name>dfs.datanode.data.dir.perm</name>
+  <value>700</value> 
+</property>
+<property>
+  <name>dfs.datanode.address</name>
+  <value>0.0.0.0:1004</value>
+</property>
+<property>
+  <name>dfs.datanode.http.address</name>
+  <value>0.0.0.0:1006</value>
+</property>
+<property>
+  <name>dfs.datanode.keytab.file</name>
+  <value>/etc/hadoop/conf/hdfs.keytab</value> <!-- path to the HDFS keytab -->
+</property>
+<property>
+  <name>dfs.datanode.kerberos.principal</name>
+  <value>hdfs/_HOST@US-WEST-1.COMPUTE.INTERNAL</value>
+</property>
+
+<!-- WebHDFS security config -->
+<property>
+  <name>dfs.webhdfs.enabled</name>
+  <value>true</value>
+</property>
+
+<property>
+  <name>dfs.web.authentication.kerberos.principal</name>
+  <value>HTTP/_HOST@US-WEST-1.COMPUTE.INTERNAL</value>
+</property>
+
+<property>
+  <name>dfs.web.authentication.kerberos.keytab</name>
+  <value>/etc/hadoop/conf/hdfs.keytab</value> <!-- path to the HTTP keytab -->
+</property>
+
+</configuration>

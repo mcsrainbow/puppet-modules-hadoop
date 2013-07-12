@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<!--- File Managed by Puppet -->
+
+<configuration>
+<!--- global properties -->
+<property>
+  <name>hadoop.tmp.dir</name>
+  <value>/data/storage</value>
+  <description>A directory for other temporary directories.</description>
+</property>
+<!-- file system properties -->
+<property>
+  <name>fs.default.name</name>
+  <value>hdfs://ip-10-197-29-251.us-west-1.compute.internal:8020</value>
+</property>
+
+<property>
+  <name>fs.checkpoint.period</name>
+  <value>300</value>
+</property>
+<property>
+  <name>fs.checkpoint.dir</name>
+  <value>${hadoop.tmp.dir}/dfs/namesecondary</value>
+</property>
+
+<!-- HTTPFS proxy user setting -->
+<property>
+  <name>hadoop.proxyuser.httpfs.hosts</name>
+  <value>*</value>
+</property>
+<property>
+  <name>hadoop.proxyuser.httpfs.groups</name>
+  <value>*</value>
+</property>
+
+<!-- Kerberos setting -->
+<property>
+  <name>hadoop.security.authentication</name>
+  <value>kerberos</value>
+</property>
+<property>
+  <name>hadoop.security.authorization</name> 
+  <value>true</value>
+</property>
+<property>
+  <name>hadoop.security.use-weak-http-crypto</name>
+  <value>false</value>
+</property>
+
+</configuration>
